@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 10px solid #eaeaea;
+}
+
+.header{
+        background-color: #de29ab;
+        min-height: 5vh;
+}
+
+.brand,
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand img {
+    width: 30px;
+    padding: 0.1em;
+}
+
+.links li {
+    margin-right: 1em;
+    list-style: none;
+}
+
+.links a {
+    padding: 0.1em 0.3em;
+}
+
+a {
+    color: #eaeaea;
+    font-size: large;
+}
