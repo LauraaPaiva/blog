@@ -14,20 +14,52 @@
   <input type="submit" value="{{ btnText }}" />
 </form> -->
 
-<form class="post-form">
+<form
+  class="post-form"
+  (ngSubmit)="submit()"
+  [formGroup]="postForm"
+  #formDir="ngForm"
+>
   <mat-form-field class="post-full-width">
     <mat-label>Título</mat-label>
-    <input matInput placeholder="Coloque um título" />
+    <input
+      matInput
+      placeholder="Coloque um título"
+      formControlName="title"
+      required
+    />
+    <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="title.errors?.['required']">O título é obrigatório.</p>
+    </div>
   </mat-form-field>
 
   <mat-form-field class="post-full-width">
     <mat-label>Descrição</mat-label>
-    <textarea matInput placeholder="Informações sobre o registro"></textarea>
+    <textarea
+      matInput
+      placeholder="Informações sobre o registro"
+      formControlName="description"
+      required
+    ></textarea>
+    <div
+      *ngIf="description.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p *ngIf="description.errors?.['required']">A descrição é obrigatória.</p>
+    </div>
   </mat-form-field>
 
   <mat-form-field class="post-full-width">
     <mat-label>Imagem</mat-label>
-    <input matInput placeholder="Coloque a URL da imagem" />
+    <input
+      matInput
+      placeholder="Coloque a URL da imagem"
+      formControlName="image"
+      required
+    />
+    <div *ngIf="image.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="image.errors?.['required']">A imagem é obrigatória.</p>
+    </div>
   </mat-form-field>
 
   <input type="submit" value="{{ btnText }}" />
