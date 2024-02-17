@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './new-post.component.html',
   styleUrl: './new-post.component.css',
 })
-export class NewPostComponent {}
+export class NewPostComponent {
+  btnText: string = 'Compartilhar';
+}

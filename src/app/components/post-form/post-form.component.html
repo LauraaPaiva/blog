@@ -1,0 +1,34 @@
+<!-- <form>
+  <div class="form-group">
+    <label for="title">Título</label>
+    <input type="text" placeholder="Coloque um título" required />
+  </div>
+  <div class="form-group">
+    <label for="description">Descrição</label>
+    <textarea placeholder="Informações sobre o registro" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="imagem">Imagem</label>
+    <input type="text" placeholder="Coloque a URL da imagem" required />
+  </div>
+  <input type="submit" value="{{ btnText }}" />
+</form> -->
+
+<form class="post-form">
+  <mat-form-field class="post-full-width">
+    <mat-label>Título</mat-label>
+    <input matInput placeholder="Coloque um título" />
+  </mat-form-field>
+
+  <mat-form-field class="post-full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput placeholder="Informações sobre o registro"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="post-full-width">
+    <mat-label>Imagem</mat-label>
+    <input matInput placeholder="Coloque a URL da imagem" />
+  </mat-form-field>
+
+  <input type="submit" value="{{ btnText }}" />
+</form>

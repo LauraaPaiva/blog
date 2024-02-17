@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // declarations
 import { AppComponent } from './app.component';
@@ -30,6 +33,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     HomeComponent,
     NewPostComponent,
   ],
+  providers: [provideAnimationsAsync()],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,8 +44,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    PostFormComponent,
+    MatInputModule,
+    MatFormFieldModule,
   ],
-  providers: [provideAnimationsAsync()],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
