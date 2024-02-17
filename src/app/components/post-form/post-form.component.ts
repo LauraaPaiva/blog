@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,6 +9,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { Post } from '../../Post';
 
 @Component({
   selector: 'app-post-form',
@@ -24,12 +25,9 @@ import {
   styleUrl: './post-form.component.css',
 })
 export class PostFormComponent {
-  postForm!: FormGroup;
-  submit() {
-    if (this.postForm.invalid) return;
-    console.log('Formulário enviado');
-  }
+  @Output() onSubmit = new EventEmitter<Post>();
   @Input() btnText!: string;
+  postForm!: FormGroup;
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
@@ -50,5 +48,12 @@ export class PostFormComponent {
 
   get image() {
     return this.postForm.get('image')!;
+  }
+
+  submit() {
+    if (this.postForm.invalid) return;
+    console.log('Formulário enviado');
+
+    this.onSubmit.emit(this.postForm.value);
   }
 }
