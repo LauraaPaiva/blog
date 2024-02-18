@@ -24,4 +24,8 @@ export class PostService {
   createPost(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }
+  removeMoment(id: number) {
+    const url = this.apiUrl + '/' + id;
+    return this.http.delete(url);
+  }
 }

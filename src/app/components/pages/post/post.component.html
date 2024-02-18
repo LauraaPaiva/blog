@@ -1,4 +1,37 @@
-<h1>Teste</h1>
-<div class="post" *ngIf="post">
-  <h1>{{ post.title }}</h1>
+<div class="post-container">
+  <div class="post-details-container" *ngIf="post">
+    <div class="post">
+      <h1>{{ post.title }}</h1>
+      <img src="{{ post.image }}" alt="{{ post.description }}" />
+    </div>
+    <div class="details">
+      <div class="details-header">
+        <div class="about-post">
+          <p>Sobre este registro</p>
+          <h2>{{ post.description }}</h2>
+        </div>
+        <div class="actions">
+          <button
+            class="action"
+            routerLink="/post/edit/{{ post.id }}"
+            mat-mini-fab
+            color="#eaeaea"
+          >
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button
+            class="action"
+            (click)="removeHandler(post.id!)"
+            mat-mini-fab
+            color="#eaeaea"
+          >
+            <fa-icon [icon]="faTimes"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="comments-container">
+        <p>Comentários: {{ post.comments!.length }}</p>
+      </div>
+    </div>
+  </div>
 </div>
