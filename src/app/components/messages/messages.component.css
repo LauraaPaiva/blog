@@ -23,6 +23,11 @@
     cursor: pointer;
 }
 
+.message-title {
+    font-size: 0.8em;
+    color: #de29ab;
+}
+
 .message p {
     font-size: 1.2em;
 }
