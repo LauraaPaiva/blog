@@ -34,7 +34,7 @@ export class PostFormComponent {
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      image: new FormControl(''),
+      image: new FormControl('', [Validators.required]),
     });
   }
 
