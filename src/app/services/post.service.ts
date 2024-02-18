@@ -17,7 +17,10 @@ export class PostService {
   getPosts(): Observable<Response<Post[]>> {
     return this.http.get<Response<Post[]>>(this.apiUrl);
   }
-
+  getPost(id: number) {
+    const url = this.apiUrl + '/' + id;
+    return this.http.get<Response<Post>>(url);
+  }
   createPost(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }

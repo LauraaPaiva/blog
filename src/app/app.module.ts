@@ -24,6 +24,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewPostComponent } from './components/pages/new-post/new-post.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { PostComponent } from './components/pages/post/post.component';
 
 //providers
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -37,6 +38,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     HomeComponent,
     NewPostComponent,
     MessagesComponent,
+    PostComponent,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
