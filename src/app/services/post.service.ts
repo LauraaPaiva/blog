@@ -11,9 +11,9 @@ export class PostService {
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}api/post`;
 
+  constructor(private http: HttpClient) {}
+
   createPost(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }
-
-  constructor(private http: HttpClient) {}
 }

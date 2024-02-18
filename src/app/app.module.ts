@@ -12,6 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 // declarations
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewPostComponent } from './components/pages/new-post/new-post.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 //providers
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -32,6 +35,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AboutComponent,
     HomeComponent,
     NewPostComponent,
+    MessagesComponent,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
@@ -47,6 +51,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     PostFormComponent,
     MatInputModule,
     MatFormFieldModule,
+    FontAwesomeModule,
   ],
 })
 export class AppModule {}
