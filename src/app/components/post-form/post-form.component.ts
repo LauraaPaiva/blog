@@ -27,14 +27,22 @@ import { Post } from '../../Post';
 export class PostFormComponent {
   @Output() onSubmit = new EventEmitter<Post>();
   @Input() btnText!: string;
+  @Input() postData!: Post;
   postForm!: FormGroup;
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
       id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required]),
+      title: new FormControl(this.postData ? this.postData.title : '', [
+        Validators.required,
+      ]),
+      description: new FormControl(
+        this.postData ? this.postData.description : '',
+        [Validators.required]
+      ),
+      image: new FormControl(this.postData ? this.postData.image : '', [
+        Validators.required,
+      ]),
     });
   }
 

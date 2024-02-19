@@ -1,0 +1,7 @@
+<h3>Edite as informações do post:</h3>
+<h1>{{ post.title }}</h1>
+<app-post-form
+  [btnText]="btnText"
+  [postData]="post"
+  (onSubmit)="editHandler($event)"
+></app-post-form>

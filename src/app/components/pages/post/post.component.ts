@@ -30,7 +30,7 @@ export class PostComponent {
 
   async removeHandler(id: number) {
     if (id) {
-      await this.postService.removeMoment(id).subscribe();
+      await this.postService.removePost(id).subscribe();
       this.messagesService.add('Sucesso', 'Registro excluído com sucesso!');
       this.router.navigate(['/']);
     }

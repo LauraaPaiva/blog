@@ -25,6 +25,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { NewPostComponent } from './components/pages/new-post/new-post.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { PostComponent } from './components/pages/post/post.component';
+import { EditPostComponent } from './components/pages/edit-post/edit-post.component';
 
 //providers
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -39,6 +40,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     NewPostComponent,
     MessagesComponent,
     PostComponent,
+    EditPostComponent,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
