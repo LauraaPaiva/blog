@@ -1,8 +1,8 @@
 export interface Comment {
   id?: number;
-  text: string;
+  comment: string;
   user: string;
-  postId: string;
+  postId: number;
   created_at: string;
   updated_at: string;
 }

@@ -1,37 +1,131 @@
 <div class="post-container">
   <div class="post-details-container" *ngIf="post">
-    <div class="post">
-      <h1>{{ post.title }}</h1>
-      <img src="{{ post.image }}" alt="{{ post.description }}" />
+    <div class="left-painel">
+      <div class="post">
+        <h1>{{ post.title }}</h1>
+        <img src="{{ post.image }}" alt="{{ post.description }}" />
+      </div>
+      <div class="painel-comment-form">
+        <form
+          class="comment-form"
+          [formGroup]="commentForm"
+          #formDir="ngForm"
+          (ngSubmit)="onSubmit(formDir)"
+        >
+          <div class="form-group">
+            <label for="comment">Comentário:</label>
+            <textarea
+              formControlName="comment"
+              placeholder="O que você quer comentar?"
+              required
+            >
+            </textarea>
+
+            <div
+              *ngIf="comment.invalid && formDir.submitted"
+              class="validation-error"
+            >
+              <p *ngIf="comment.errors?.['required']">
+                O comentário é obrigatório.
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user">Nome:</label>
+            <input
+              type="text"
+              formControlName="user"
+              placeholder="Digite o seu nome"
+              required
+            />
+
+            <div
+              *ngIf="user.invalid && formDir.submitted"
+              class="validation-error"
+            >
+              <p *ngIf="user.errors?.['required']">O nome é obrigatório.</p>
+            </div>
+          </div>
+          <input type="submit" value="Comentar!" />
+        </form>
+      </div>
     </div>
-    <div class="details">
-      <div class="details-header">
-        <div class="about-post">
-          <p>Sobre este registro</p>
-          <h2>{{ post.description }}</h2>
-        </div>
-        <div class="actions">
-          <button
-            class="action"
-            routerLink="/post/edit/{{ post.id }}"
-            mat-mini-fab
-            color="#eaeaea"
-          >
-            <fa-icon [icon]="faEdit"></fa-icon>
-          </button>
-          <button
-            class="action"
-            (click)="removeHandler(post.id!)"
-            mat-mini-fab
-            color="#eaeaea"
-          >
-            <fa-icon [icon]="faTimes"></fa-icon>
-          </button>
+    <div class="right-painel">
+      <div class="details">
+        <div class="details-header">
+          <div class="about-post">
+            <p>Sobre este registro</p>
+            <h2>{{ post.description }}</h2>
+          </div>
+          <div class="actions">
+            <button
+              class="action"
+              routerLink="/post/edit/{{ post.id }}"
+              mat-mini-fab
+              color="#eaeaea"
+            >
+              <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+            <button
+              class="action"
+              (click)="removeHandler(post.id!)"
+              mat-mini-fab
+              color="#eaeaea"
+            >
+              <fa-icon [icon]="faTimes"></fa-icon>
+            </button>
+          </div>
         </div>
       </div>
       <div class="comments-container">
         <p>Comentários: {{ post.comments!.length }}</p>
+        <div *ngIf="post.comments!.length > 0">
+          <div>
+            <div
+              class="comment-container"
+              *ngFor="let comment of post.comments"
+            >
+              <p class="comment">{{ comment.comment }}</p>
+              <p class="author"><span>por:</span> {{ comment.user }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <form
+          class="comment-form"
+          (ngSubmit)="onSubmit(formDir)"
+          [formGroup]="commentForm"
+          #formDir="ngForm"
+        >
+          <mat-form-field class="post-full-width">
+            <mat-label>Novo comentário</mat-label>
+            <textarea
+              matInput
+              placeholder="Informações sobre o registro"
+              formControlName="description"
+              required
+            ></textarea>
+            <div class="validation-error">
+              <p>Sem comentário</p>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field class="post-full-width">
+            <mat-label>Autor</mat-label>
+            <input
+              matInput
+              placeholder="Coloque a URL da imagem"
+              formControlName="image"
+              required
+            />
+            <div class="validation-error">
+              <p>Sem autor</p>
+            </div>
+          </mat-form-field>
+
+          <input type="submit" value="Comentar" />
+        </form> -->

@@ -3,5 +3,5 @@ export interface Post {
   title: string;
   description: string;
   image: string;
-  comments?: [{ text: string; user: string }];
+  comments?: [{ comment: string; user: string }];
 }
