@@ -1,6 +1,6 @@
 ---
-created: 2026-10-18T19:30:00Z
-revision: 2026-10-18T19:30:00Z
+created: 2026-10-18
+revision: 2026-10-18
 ação: true
 tags:
   - paperclip
